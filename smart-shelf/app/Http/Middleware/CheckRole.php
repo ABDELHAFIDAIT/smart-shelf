@@ -11,10 +11,11 @@ class CheckRole
 {
     public function handle(Request $request, Closure $next, ...$roles)
     {
-        if (!Auth::check() || !in_array(Auth::user()->role, $roles)) {
-            return response()->json(['message' => 'Accès interdit'], 403);
+        $user = $request->user();
+
+        if (! $user || ! in_array($user->role, $roles)) {
+            abort(403, 'Unauthorized');
         }
-    
         return $next($request);
     }
 }
