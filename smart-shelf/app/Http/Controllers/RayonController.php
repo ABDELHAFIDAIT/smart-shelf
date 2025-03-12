@@ -35,8 +35,14 @@ class RayonController extends Controller
 
     // get All
     public function index(){
-        $rayons = Rayon::all();
-        return response()->json($rayons,200);
+        $rayons = Rayon::with('category')->get();
+        return response()->json($rayons->map(function($rayon) {
+            return [
+                "numero" => $rayon->numero,
+                "places" => $rayon->places,
+                "category" => $rayon->category->name,
+            ];
+        }), 200);
     }
 
     // show One
@@ -68,11 +74,20 @@ class RayonController extends Controller
 
         $validatedData = $validator->validate();
 
-        $rayon->update([
-            "numero" => $validatedData['numero'],
-            "places" => $validatedData['places'],
-            "id_category" => $validatedData['id_category'],
-        ]);
+
+        if ($request->has('numero')) {
+            $rayon->numero = $validatedData['numero'];
+        }
+    
+        if ($request->has('places')) {
+            $rayon->places = $validatedData['places'];
+        }
+    
+        if ($request->has('id_category')) {
+            $rayon->id_category = bcrypt($validatedData['id_category']);
+        }
+    
+        $rayon->save();
 
         return response()->json([
             'message' => 'Rayon mis à jour avec succès',

@@ -13,4 +13,8 @@ class Category extends Model
     protected $fillable = [
         'name',
     ];
+
+    public function rayon(){
+        return $this->hasMany(Rayon::class,'id_category');
+    }
 }
