@@ -10,7 +10,7 @@ class UserController extends Controller
 {
     // get All
     public function index(){
-        $clients = User::where('roel','custumor')->get();
+        $clients = User::where('role','custumor')->get();
         return response()->json($clients, 200);
     }
 
@@ -65,10 +65,10 @@ class UserController extends Controller
     }
 
     // suspend client
-    public function suspend(User $client){
-        $client->update([
-            "status" => 'Suspended'
-        ]);
+    public function suspend($id){
+        $client = User::findOrFail($id);
+        $client->status = 'Suspended';
+        $client->save();
 
         return response()->json([
             "message" => "Client est Suspendu avec Succès !",
@@ -77,10 +77,10 @@ class UserController extends Controller
     }
 
     // activate client
-    public function activate(User $client){
-        $client->update([
-            "status" => 'Active'
-        ]);
+    public function activate($id){
+        $client = User::findOrFail($id);
+        $client->status = 'Active';
+        $client->save();
 
         return response()->json([
             "message" => "Client est activé avec Succès !",
