@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\RayonController;
 use App\Http\Controllers\UserController;
 use App\Models\Category;
@@ -52,4 +53,10 @@ Route::group(['middleware' => ['auth:sanctum']], function(){
     Route::get('/popular/products',[ProductController::class,'popular']);
     Route::get('/promoted/products',[ProductController::class,'promoted']);
     Route::post('/search/products',[ProductController::class,'search']);
+    
+    Route::get('/orders',[OrderController::class,'index']);
+});
+
+Route::group(['middleware' => ['auth:sanctum','restrictRole:custumor']], function(){
+    Route::post('/orders',[OrderController::class,'store']);
 });
