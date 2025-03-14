@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\RayonController;
+use App\Http\Controllers\UserController;
 use App\Models\Category;
 use GuzzleHttp\Middleware;
 use Illuminate\Http\Request;
@@ -34,4 +35,7 @@ Route::group(['middleware' => ['auth:sanctum']], function(){
 Route::group(['middleware' => ['auth:sanctum','restrictRole:admin']], function(){
     Route::apiResource('categories',CategoryController::class);
     Route::apiResource('rayons', RayonController::class);
+    Route::apiResource('clients',UserController::class);
+    Route::patch('/clients/{client}/suspend',[UserController::class,'suspend']);
+    Route::patch('/clients/{client}/activate',[UserController::class,'activate']);
 });

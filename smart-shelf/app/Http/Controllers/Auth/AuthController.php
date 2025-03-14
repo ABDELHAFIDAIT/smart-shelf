@@ -48,6 +48,12 @@ class AuthController extends Controller
             ]);
         }
 
+        if($user->status == 'Suspended'){
+            return response([
+                'message' => 'Vous êtes Suspendu pour le Moment !'
+            ]);
+        }
+
         $token = $user->createToken('gen-token')->plainTextToken;
 
         return response()->json([
