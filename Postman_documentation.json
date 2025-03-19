@@ -1,0 +1,1652 @@
+{
+	"info": {
+		"_postman_id": "626f8254-9b89-454c-aec2-1614d3aaf49e",
+		"name": "SmartShelf",
+		"description": "Development of a REST API for supermarket shelf management, enabling efficient inventory and product management using Laravel.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "42978505"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"oussama\",\r\n    \"email\": \"oussama@gmail.com\",\r\n    \"password\": \"oussama@gmail.com\",\r\n    \"password_confirmation\": \"oussama@gmail.com\",\r\n    \"role\" : \"custumor\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/auth/register",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						},
+						"description": "### Register User\n\nThis endpoint is used to register a new user.\n\n**Request Body**\n\n- name (string, required): The name of the user.\n    \n- email (string, required): The email address of the user.\n    \n- password (string, required): The password for the user account.\n    \n- password_confirmation (string, required): Confirmation of the password.\n    \n- role (string, required): The role of the user, e.g., customer, admin, etc.\n    \n\n**Response**  \nThe response will contain the status of the registration process, along with any relevant messages or errors."
+					},
+					"response": [
+						{
+							"name": "Register",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\":\"oussama\",\r\n    \"email\": \"oussama@gmail.com\",\r\n    \"password\": \"oussama@gmail.com\",\r\n    \"password_confirmation\": \"oussama@gmail.com\",\r\n    \"role\" : \"custumor\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/auth/register",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"auth",
+										"register"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Login",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "FD2upylUHvJ2GZmHz1McBHiwH0HiohfPXbgMOS1P7e92504d",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"admin@gmail.com\",\r\n    \"password\" : \"admin@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						},
+						"description": "### Login\n\nThis API endpoint is used to authenticate users and generate a token for accessing protected resources.\n\n#### Request Body\n\n- `email` (string) : The email of the user.\n    \n- `password` (string) : The password of the user.\n    \n\n#### Response\n\nThe response will be a JSON object.\n\nThe `token` field contains the authentication token to be used for accessing protected resources."
+					},
+					"response": [
+						{
+							"name": "Login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\" : \"admin@gmail.com\",\r\n    \"password\" : \"admin@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/auth/login",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "nqGXUl45yKtbMoO9gPlzUlt2fgpnY2HG9yYpDtl9c5a69bbe",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/auth/logout",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"auth",
+								"logout"
+							]
+						},
+						"description": "### Logout\n\nThis endpoint is used to logout the authenticated user.\n\n#### Request Body\n\n- No request body is required for this endpoint.\n    \n\n#### Response\n\nThe response for this request is a JSON object.\n\n- `message` (string): A message indicating the result of the logout operation."
+					},
+					"response": []
+				}
+			],
+			"description": "Manage user authentication in a Laravel application. It enables registration, login and logout. It uses authentication tokens to secure access to application resources.",
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "6Vg4dfPDAgu9oXsAoeY6T8BDIAaYX020PcSPiRUV26a89cce",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Custumors",
+			"item": [
+				{
+					"name": "update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/clients/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"clients",
+								"1"
+							]
+						},
+						"description": "This endpoint allows the user to update specific details of a client by sending an HTTP PATCH request to the specified URL. The request should include the updated information for the client in the request body. Upon successful processing of the request, the server will respond with the updated details of the client in the response body."
+					},
+					"response": [
+						{
+							"name": "update",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/clients/1",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"clients",
+										"1"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "activate",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/clients/1/activate",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"clients",
+								"1",
+								"activate"
+							]
+						},
+						"description": "This endpoint sends an HTTP PATCH request to activate a client with the given ID. Upon a successful request, the response will be in the form of a JSON schema."
+					},
+					"response": [
+						{
+							"name": "activate",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/clients/1/activate",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"clients",
+										"1",
+										"activate"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "suspend",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/clients/3/suspend",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"clients",
+								"3",
+								"suspend"
+							]
+						},
+						"description": "### Patch Client Suspension\n\nThis endpoint is used to suspend a specific client by sending an HTTP PATCH request to the specified URL.\n\n**Response**  \nThe response will include the updated details of the suspended client."
+					},
+					"response": [
+						{
+							"name": "suspend",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/clients/3/suspend",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"clients",
+										"3",
+										"suspend"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "getAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/clients",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"clients"
+							]
+						},
+						"description": "This endpoint makes an HTTP GET request to retrieve a list of clients from the server.\n\n### Request Body\n\nThis request does not require a request body.\n\n### Response Body\n\nThe response will contain a list of clients, including their details such as name, email, and contact information."
+					},
+					"response": []
+				},
+				{
+					"name": "showOne",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/clients/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"clients",
+								"1"
+							]
+						},
+						"description": "### Get Client Details\n\nThis endpoint retrieves the details of a specific client.\n\n#### Request\n\n- Method: GET\n    \n- URL: `http://127.0.0.1:8000/api/clients/1`\n    \n\n#### Response\n\nThe response for this request is a JSON object representing the details of the client."
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/clients/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"clients",
+								"1"
+							]
+						},
+						"description": "### Delete Client\n\nThis endpoint sends an HTTP DELETE request to remove a specific client from the database.\n\n#### Request Body\n\nThis request does not require a request body.\n\n#### Response\n\nThe response will not contain a response body. The status code will indicate the success or failure of the deletion operation."
+					},
+					"response": [
+						{
+							"name": "delete",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/clients/1",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"clients",
+										"1"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			],
+			"description": "Manages CRUD operations for clients (role = 'custumor'), including updating, deleting, suspending, and activating users.",
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "DofK2oaijzTr5bzVG2wqF9xYaobUBNEGrTW5G21v89ddfad4",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Ginova\",\r\n    \"description\": \"Un Biscuit avec une couverture de chocolat noir\",\r\n    \"marque\": \"excelo\",\r\n    \"unit_price\": 5,\r\n    \"id_rayon\": 1,\r\n    \"promotion\": 10,\r\n    \"is_popular\": true,\r\n    \"stock\": 30,\r\n    \"min_stock\": 30\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/products/3",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"products",
+								"3"
+							]
+						},
+						"description": "This endpoint makes an HTTP PATCH request to update the product information at the specified URL. The request body should contain the updated details of the product including name, description, marque, unit price, ID of the rayon, promotion, popularity status, stock, and minimum stock level.\n\n### Response\n\nThe response of this request is a JSON object representing the updated product information. To document the response, a JSON schema can be created based on the structure of the response object returned by the API."
+					},
+					"response": [
+						{
+							"name": "update",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Ginova\",\r\n    \"description\": \"Un Biscuit avec une couverture de chocolat noir\",\r\n    \"marque\": \"excelo\",\r\n    \"unit_price\": 5,\r\n    \"id_rayon\": 1,\r\n    \"promotion\": 10,\r\n    \"is_popular\": true,\r\n    \"stock\": 30,\r\n    \"min_stock\": 30\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/products/3",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"products",
+										"3"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Tager\",\r\n    \"description\": \"Un Biscuit avec une couverture de chocolat noir\",\r\n    \"marque\": \"bimo\",\r\n    \"unit_price\": 2.99,\r\n    \"id_rayon\": 1,\r\n    \"promotion\": 0,\r\n    \"is_popular\": true,\r\n    \"stock\": 100,\r\n    \"min_stock\": 20\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/products",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"products"
+							]
+						},
+						"description": "This endpoint allows you to create a new product by sending an HTTP POST request to the specified URL. The request should include a JSON payload in the raw request body, containing the following parameters:\n\n- `name` (string): The name of the product.\n    \n- `description` (string): A detailed description of the product.\n    \n- `marque` (string): The brand or manufacturer of the product.\n    \n- `unit_price` (number): The price of the product per unit.\n    \n- `id_rayon` (number): The ID of the product category or section.\n    \n- `promotion` (number): The promotion value for the product.\n    \n- `is_popular` (boolean): Indicates whether the product is popular or not.\n    \n- `stock` (number): The current stock quantity of the product.\n    \n- `min_stock` (number): The minimum stock quantity required for the product.\n    \n\nUpon successful creation, the response will include the details of the newly created product."
+					},
+					"response": [
+						{
+							"name": "create",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Tager\",\r\n    \"description\": \"Un Biscuit avec une couverture de chocolat noir\",\r\n    \"marque\": \"bimo\",\r\n    \"unit_price\": 2.99,\r\n    \"id_rayon\": 1,\r\n    \"promotion\": 0,\r\n    \"is_popular\": true,\r\n    \"stock\": 100,\r\n    \"min_stock\": 20\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/products",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"products"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "search",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"search\" : \"cuits\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/search/products",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"search",
+								"products"
+							]
+						},
+						"description": "### Search Products\n\nThis endpoint allows you to search for products.\n\n#### Request Body\n\n- `search` (string, required): The keyword to search for products.\n    \n\n#### Response\n\nThe response will include the list of products matching the search keyword."
+					},
+					"response": [
+						{
+							"name": "search",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"search\" : \"cuits\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/search/products",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"search",
+										"products"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "getAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/products",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"products"
+							]
+						},
+						"description": "This endpoint is used to retrieve a list of products.\n\n### Request\n\n- Method: GET\n    \n- URL: `http://127.0.0.1:8000/api/products`\n    \n\n### Response\n\nThe response will include a list of products with details such as product ID, name, price, and availability."
+					},
+					"response": []
+				},
+				{
+					"name": "showOne",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/products/3",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"products",
+								"3"
+							]
+						},
+						"description": "### Get Product Details\n\nThis endpoint retrieves the details of a specific product.\n\n#### Request\n\n- Method: GET\n    \n- Endpoint: `http://127.0.0.1:8000/api/products/1`"
+					},
+					"response": []
+				},
+				{
+					"name": "popular",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/popular/products",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"popular",
+								"products"
+							]
+						},
+						"description": "# Popular Products\n\nThis endpoint makes an HTTP GET request to retrieve a list of popular products.\n\n## Request\n\n- Method: GET\n    \n- Endpoint: `http://127.0.0.1:8000/api/popular/products`\n    \n\n## Response\n\nThe response body contains an array of popular products, where each product object includes an `id`, `name`, and `price` property."
+					},
+					"response": []
+				},
+				{
+					"name": "promoted",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/promoted/products",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"promoted",
+								"products"
+							]
+						},
+						"description": "### Get Promoted Products\n\nThis endpoint makes an HTTP GET request to retrieve a list of promoted products.\n\n#### Response\n\nThe response of this request is a JSON object representing the list of promoted products."
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/products/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"products",
+								"1"
+							]
+						},
+						"description": "### Delete Product\n\nThis endpoint is used to delete a specific product.\n\n#### Request\n\n- Method: DELETE\n    \n- Endpoint: `http://127.0.0.1:8000/api/products/1`\n    \n- No request body is required for this endpoint.\n    \n\n#### Response\n\nThe response for this request follows the JSON schema below:\n\n``` json\n{\n  \"type\": \"object\",\n  \"properties\": {\n    \"message\": {\n      \"type\": \"string\"\n    }\n  }\n}\n\n ```\n\nThe response contains a `message` property indicating the status of the deletion operation."
+					},
+					"response": [
+						{
+							"name": "delete",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/products/1",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"products",
+										"1"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			],
+			"description": "Handles CRUD operations for products, along with additional features like search, displaying popular products, and showing discounted products.",
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "XdEmTT5qk5GCQBsLLat6XGq0TEVyBzfLS68Eeqdy831655e6",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Categories",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"Biscuits\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/categories",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"categories"
+							]
+						},
+						"description": "### Add Category\n\nThis endpoint allows you to add a new category.\n\n#### Request Body\n\n- name (string, required): The name of the category to be added.\n    \n\n#### Response\n\nThe response will include the details of the newly added category."
+					},
+					"response": [
+						{
+							"name": "create",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\" : \"Biscuits\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/categories",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"categories"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"Drinks\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/categories/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"categories",
+								"1"
+							]
+						},
+						"description": "### Update Category Name\n\nThis endpoint sends an HTTP PATCH request to update the name of a specific category.\n\n#### Request Body\n\n- `name`: (string) The new name of the category.\n    \n\n#### Response\n\nThe response will include the updated details of the category."
+					},
+					"response": [
+						{
+							"name": "update",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\" : \"Drinks\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/categories/1",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"categories",
+										"1"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "getAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/categories",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"categories"
+							]
+						},
+						"description": "### Retrieve Categories\n\nThis endpoint makes an HTTP GET request to retrieve a list of categories.\n\n#### Request Body\n\nThis request does not require a request body.\n\n#### Response\n\n- `categories`: An array of category objects containing information about each category.\n    \n\nExample:\n\n``` json\n{\n    \"categories\": [\n        {\n            \"id\": 1,\n            \"name\": \"Category 1\"\n        },\n        {\n            \"id\": 2,\n            \"name\": \"Category 2\"\n        }\n    ]\n}\n\n ```"
+					},
+					"response": []
+				},
+				{
+					"name": "showOne",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/categories/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"categories",
+								"1"
+							]
+						},
+						"description": "This endpoint retrieves the details of a specific category identified by the ID in the URL.\n\n### Request\n\n- Method: GET\n    \n- URL: `http://127.0.0.1:8000/api/categories/1`\n    \n\n### Response\n\nThe response will include the details of the category, such as its ID, name, description, and any other relevant information."
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/categories/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"categories",
+								"1"
+							]
+						},
+						"description": "This endpoint sends an HTTP DELETE request to the specified URL to delete the category with the ID of 1.\n\n### Request Body\n\nThis request does not require a request body.\n\n### Response\n\nThe response will not include a response body, but will indicate the success or failure of the deletion operation."
+					},
+					"response": [
+						{
+							"name": "delete",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/categories/1",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"categories",
+										"1"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			],
+			"description": "Manages CRUD operations for categories, allowing users to create, view, update, and delete categories.",
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "UQNNU0gdMEF6DmLJPJjsgoWrEibZ9aa4TntOlg6Ke431e9dd",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Rayons",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"numero\" : 1234,\r\n    \"places\" : 100,\r\n    \"id_category\" : 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/rayons",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"rayons"
+							]
+						},
+						"description": "This endpoint allows you to create a new \"rayon\" by sending an HTTP POST request to the specified URL. The request should include a JSON payload in the raw request body type with the following parameters:\n\n- `numero`: The number of the rayon (e.g. 1234).\n    \n- `places`: The number of places in the rayon (e.g. 100).\n    \n- `id_category`: The ID of the category to which the rayon belongs (e.g. 1).\n    \n\nUpon successful creation, the response will include the details of the newly created rayon."
+					},
+					"response": [
+						{
+							"name": "create",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"numero\" : 1234,\r\n    \"places\" : 100,\r\n    \"id_category\" : 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/rayons",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"rayons"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"numero\" : 1234,\r\n    \"places\" : 111\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/rayons/3",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"rayons",
+								"3"
+							]
+						},
+						"description": "This endpoint allows you to update specific details of a \"rayon\" with the given ID. The HTTP PATCH request should be made to [http://127.0.0.1:8000/api/rayons/3](http://127.0.0.1:8000/api/rayons/3), where \"3\" is the ID of the rayon to be updated. The request body should be in raw format and include the parameters \"numero\" and \"places\" along with their respective values.\n\n### Request Body\n\n- `numero`: The new value for the \"numero\" of the rayon.\n    \n- `places`: The updated number of \"places\" in the rayon.\n    \n\n### Response\n\nThe response will contain the updated details of the rayon after the PATCH request is successfully processed."
+					},
+					"response": [
+						{
+							"name": "update",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"numero\" : 1234,\r\n    \"places\" : 111\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/rayons/3",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"rayons",
+										"3"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "getAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/rayons",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"rayons"
+							]
+						},
+						"description": "### GET /api/rayons\n\nThis endpoint retrieves a list of rayons.\n\n#### Request\n\nNo request body is required for this endpoint.\n\n#### Response\n\nThe response will be a JSON object with the following properties:\n\n- `rayonId` (number): The unique identifier for the rayon.\n    \n- `rayonName` (string): The name of the rayon.\n    \n\nExample response:\n\n``` json\n{\n    \"rayonId\": 123,\n    \"rayonName\": \"Example Rayon\"\n}\n\n ```"
+					},
+					"response": []
+				},
+				{
+					"name": "showOne",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/rayons/2",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"rayons",
+								"2"
+							]
+						},
+						"description": "### GET\n\nThis endpoint retrieves information about a specific \"rayon\" with the ID of 2.\n\n#### Request\n\nThere are no request parameters for this endpoint.\n\n#### Response\n\nThe response will be a JSON object."
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/rayons/2",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"rayons",
+								"2"
+							]
+						},
+						"description": "### Delete Rayon\n\nThis endpoint is used to delete a specific rayon by its ID.\n\n#### Request\n\n- Method: DELETE\n    \n- URL: `http://127.0.0.1:8000/api/rayons/2`\n    \n- No request body is required for this endpoint.\n    \n\n#### Response\n\nThe response for this request is a JSON schema describing the success or failure of the delete operation."
+					},
+					"response": [
+						{
+							"name": "delete",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/rayons/2",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"rayons",
+										"2"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			],
+			"description": "Manages CRUD operations for \"Rayons\" (sections/shelves), ensuring data validation and relationships with categories.",
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "UQNNU0gdMEF6DmLJPJjsgoWrEibZ9aa4TntOlg6Ke431e9dd",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Orders",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_product\" : 3,\r\n    \"id_custumor\" : 1,\r\n    \"quantity\" : 10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/orders",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"orders"
+							]
+						},
+						"description": "## Endpoint Description\n\nThis endpoint is used to create a new order by sending a POST request to the specified URL.\n\n## Request Body\n\n- id_product (integer): The ID of the product being ordered.\n    \n- id_customer (integer): The ID of the customer placing the order.\n    \n- quantity (integer): The quantity of the product being ordered.\n    \n\n## Response\n\nThe response of this request is a JSON Object ."
+					},
+					"response": [
+						{
+							"name": "create",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id_product\" : 3,\r\n    \"id_custumor\" : 1,\r\n    \"quantity\" : 10\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/orders",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"orders"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "getAll",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/orders",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"orders"
+							]
+						},
+						"description": "## Retrieve Orders\n\nThis endpoint makes an HTTP GET request to retrieve a list of orders.\n\n### Request Body\n\nThis request does not require a request body.\n\n### Response Body\n\n- `orders`: An array of order objects containing details such as order ID, customer information, and order status.\n    \n\nExample:\n\n``` json\n{\n    \"orders\": [\n        {\n            \"orderId\": \"12345\",\n            \"customerName\": \"John Doe\",\n            \"orderStatus\": \"Pending\"\n        },\n        {\n            \"orderId\": \"67890\",\n            \"customerName\": \"Jane Smith\",\n            \"orderStatus\": \"Shipped\"\n        }\n    ]\n}\n\n ```"
+					},
+					"response": []
+				}
+			],
+			"description": "Handles order processing, including placing new orders and retrieving all orders with product and customer details.",
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "nqGXUl45yKtbMoO9gPlzUlt2fgpnY2HG9yYpDtl9c5a69bbe",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	]
+}
