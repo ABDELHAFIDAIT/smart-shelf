@@ -56,7 +56,7 @@
 <body>
     <div class="header">
         <div class="logo">
-            <img src="https://drive.google.com/file/d/1f9Ik7FzdDj8O7dUP0yNgkONJU0R-GrqX/view?usp=sharing" alt="Logo de Smart Shelf" class="h-16">
+            <img src="https://raw.githubusercontent.com/ABDELHAFIDAIT/smart-shelf/refs/heads/main/smart-shelf/public/logo.png" alt="Logo de Smart Shelf" class="h-16">
         </div>
     </div>
 
